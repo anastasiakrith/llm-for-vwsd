@@ -2,3 +2,11 @@ transformers==4.33.0
 accelerate==0.22.0
 openai==0.28.0
 python-dotenv==1.0.0
+Pillow==10.0.0
+numpy==1.25.2
+regex==2023.8.8
+faiss-cpu==1.7.4
+argparse==1.4.0
+tqdm==4.66.1
+torch==2.0.1
+open-clip-torch==2.20.0
