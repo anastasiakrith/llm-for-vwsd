@@ -28,3 +28,7 @@ python vl_retrieval_eval.py -llm "gpt-3" -vl "clip" -baseline -penalty
 ```
 python qa_retrieval_eval.py -llm "gpt-3.5" -captioner "git" -strategy "greedy" -prompt "no_CoT" -zero_shot
 ```
+
+
+## Acknowledgement
+The implementation relies on resources from [openai-api](https://platform.openai.com/docs/api-reference) and [hugging-face transformers](https://github.com/huggingface/transformers).
