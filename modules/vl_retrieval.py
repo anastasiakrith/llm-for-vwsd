@@ -43,10 +43,10 @@ class VLRetrievalModule:
         if vl_transformer not in AVAILABLE_VL_TRANSFORMERS:
             raise ValueError(f"Invalid VL transformer: {vl_transformer}. Should be one of {AVAILABLE_VL_TRANSFORMERS.keys()}")
         
-        if llm not in AVAILABLE_LLMS:
+        self.baseline = baseline
+        if (not self.baseline) and llm not in AVAILABLE_LLMS:
             raise ValueError(f"Invalid LLM: {llm}. Should be one of {AVAILABLE_LLMS.keys()}")
         
-        self.baseline = baseline
         if (not self.baseline) and (prompt_template not in AVAILABLE_VL_PROMPT_TEMPLATES):
             raise ValueError(f"Invalid Prompt Template: {prompt_template}. Should be one of {AVAILABLE_VL_PROMPT_TEMPLATES.keys()}")
 
@@ -55,8 +55,8 @@ class VLRetrievalModule:
 
 
         self.vl_transformer = AVAILABLE_VL_TRANSFORMERS[vl_transformer]()
-        self.llm = AVAILABLE_LLMS[llm]()
         if not self.baseline:
+            self.llm = AVAILABLE_LLMS[llm]()
             self.prompt = AVAILABLE_VL_PROMPT_TEMPLATES[prompt_template] 
        
         self.add_penalty = penalty is not None

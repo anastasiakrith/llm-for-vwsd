@@ -10,7 +10,7 @@ def no_CoT_prompt(given_phrase, captions_list, strategy, gold_image_index=None):
         if strategy == "greedy":
             final_answer = f"{letters_list[gold_image_index]} {captions_list[gold_image_index]}"
         elif strategy == "beam":
-            final_answer = f"{letters_list[gold_image_index] [{', '.join(captions_list[gold_image_index])}]}"
+            final_answer = f"{letters_list[gold_image_index]} [{', '.join(captions_list[gold_image_index])}]"
 
 
     if strategy == "greedy":

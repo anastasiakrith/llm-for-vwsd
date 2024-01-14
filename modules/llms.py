@@ -96,7 +96,6 @@ class OPT:
     def __init__(self, nparameters="2.7b", max_tokens=70):
         
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(self.device)
         self.max_tokens = max_tokens
         if nparameters not in ["2.7b", "6.7b"]:
             raise ValueError("Ivalid nparameters: %s. Should be one of [2.7b, 6.7b]", nparameters)

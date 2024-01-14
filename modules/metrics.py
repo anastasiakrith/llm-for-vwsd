@@ -10,11 +10,14 @@ class ScoreModule:
         self.total_cnt = 0
     
     def add(self, golden_image_index, predictions):
+        if predictions is None:
+            return
+
         if self.approach == 'vl_retrieval':
             pred = np.where(np.array(predictions)==golden_image_index)[0][0]
             self.prediction_list[pred] += 1
         elif self.approach == 'qa_retrieval':
-            if (predictions is not None) and gold_image_index == int(predictions):
+            if golden_image_index == int(predictions):
                 self.correct_cnt += 1
         
         self.total_cnt += 1
